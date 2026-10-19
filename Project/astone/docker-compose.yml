@@ -1,0 +1,30 @@
+# Local development: Django on http://localhost:8000 and Postgres in a container.
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    command: ["sh", "./start.sh"]
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgresql://${SQL_USER}:${SQL_PASSWORD}@postgres_db:5432/${SQL_NAME}
+      - DJANGO_DEBUG=True
+    depends_on:
+      - postgres_db
+
+  postgres_db:
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=${SQL_NAME}
+      - POSTGRES_USER=${SQL_USER}
+      - POSTGRES_PASSWORD=${SQL_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

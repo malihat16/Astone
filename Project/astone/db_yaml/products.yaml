@@ -1,0 +1,24 @@
+- model: astoneapp.product  # Replace `astoneapp.product` with your app name and model name
+  pk: 1
+  fields:
+    name: "Men's long sleeve over shirt"
+    description: "Lightweight over shirt for the summer"
+    category: "Men's"
+    colors: '[{"name": "Red", "code": "#FF0000"}, {"name": "Blue", "code": "#0000FF"}]'
+    sizes: '[{"name": "Small", "code": "S"}, {"name": "Medium", "code": "M"}, {"name": "Large", "code": "L"}]'
+    currency: "MYR"
+    price: "29.99"
+    stock: 100
+
+- model: astoneapp.product
+  pk: 2
+  fields:
+    name: "Men's crew neck shirt"
+    description: "Basic but versatile crew neck"
+    category: "Men's"
+    colors: '[{"name": "Green", "code": "#00FF00"}, {"name": "Yellow", "code": "#FFFF00"}]'
+    sizes: '[{"name": "Medium", "code": "M"}, {"name": "Large", "code": "L"}]'
+    currency: "MYR"
+    price: "19.99"
+    stock: 50
+
